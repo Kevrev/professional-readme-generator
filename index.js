@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require('fs')
+const { createMD } = require('./utils/generateMarkdown')
 
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, function (err) {
@@ -71,50 +72,10 @@ function init() {
             message: questions[8]
         },
     ]).then((answers) => {
-        console.log(answers);
-        createMD(answers)
-
+        writeToFile('README.md', createMD(answers));
     });
-
 }
-
-function createMD(answers) {
-    const content = (`
-# ${answers.title}
-
-## Description
-${answers.description} 
-
-## Table of Contents
-[Installation](#installation) <br \>
-[Usage](#usage) <br \>
-[License](#license) <br \>
-[Contributing](#Contributing) <br \>
-[Tests](#Tests) <br \> 
-[Questions](#Questions) <br \>
-
-## Installation
-${answers.installation}
-
-## Usage
-${answers.usage}
-
-## License
-${answers.license}
-
-## Contribution
-${answers.contribution}
-
-## Tests
-${answers.tests}
-
-## Questions
-GitHub Profile: [${answers.username}](https://github.com/${answers.username}) <br \>
-Email: ${answers.email}
-`)
-
-    writeToFile('README.md', content);
-}
+    
 
 
 // Function call to initialize app
