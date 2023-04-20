@@ -62,7 +62,6 @@ ${answers.installation}
 ${answers.usage}
 
 ${licenseSection}
-${answers.license}
 ${licenseLink}
 
 ## Contribution
