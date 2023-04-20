@@ -20,7 +20,6 @@ c
 ## Usage
 c
 
-## License
 
 
 

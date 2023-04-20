@@ -1,24 +1,3 @@
-const fs = require('fs');
-
-// // TODO: Create a function that returns a license badge based on which license is passed in
-// // If there is no license, return an empty string
-// function renderLicenseBadge(license) {}
-
-// // TODO: Create a function that returns the license link
-// // If there is no license, return an empty string
-// function renderLicenseLink(license) {}
-
-// // TODO: Create a function that returns the license section of README
-// // If there is no license, return an empty string
-// function renderLicenseSection(license) {}
-
-// // TODO: Create a function to generate markdown for README
-// function generateMarkdown(data) {
-//   return `# ${data.title}
-
-// `;
-// }
-
 function renderLicenseBadge(license) {
   let licenseBadge = '';
 
@@ -32,37 +11,32 @@ function renderLicenseBadge(license) {
     return licenseBadge;
 };
 
-// function renderLicenseLink(license) {
-//   let licenseLink = '';
+function renderLicenseLink(license) {
+  let licenseLink = '';
 
-//   if (license === 'Apache License') {
-//      licenseLink = '[![License](https://img.shields.io/Link/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
-//   } else if (license === 'GNU General Public License v3.0') {
-//      licenseLink = '[![License: GPL v3](https://img.shields.io/Link/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)'
-//   } else if (license === 'MIT License') {
-//      licenseLink = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
-//   } 
-//     return licenseLink;
-// };
-
+  if (license === 'Apache License') {
+    licenseLink = '[Apache License, Version 2.0](https://opensource.org/license/apache-2-0/)';
+  } else if (license === 'GNU General Public License v3.0') {
+    licenseLink = '[GNU General Public License version 3](https://opensource.org/license/gpl-3-0/)';
+  } else if (license === 'MIT License') {
+    licenseLink = '[The MIT License](https://opensource.org/license/mit/)';
+  }
+  return licenseLink;
+};
 
 function renderLicenseSection(license) {
   let licenseSection = '';
-
-  if (license === 'Apache License') {
-    licenseSection = fs.readFileSync('./utils/apache.md', 'utf8');
-  } else if (license === 'GNU General Public License v3.0') {
-    licenseSection = fs.readFileSync('./utils/gpl3.md', 'utf8');
-  } else if (license === 'MIT License') {
-    licenseSection = fs.readFileSync('./utils/mit.md', 'utf8');
-  }
+  
+  if (license.length > 0) {
+    licenseSection = '## License'
+  } 
   return licenseSection;
-}
+};
 
 
 function createMD(answers) {
   const licenseBadge = renderLicenseBadge(answers.license);
-  // const licenseLink = renderLicenseLink(answers.license);
+  const licenseLink = renderLicenseLink(answers.license);
   const licenseSection = renderLicenseSection(answers.license);
 
   return (`
@@ -87,10 +61,9 @@ ${answers.installation}
 ## Usage
 ${answers.usage}
 
-## License
+${licenseSection}
 ${answers.license}
 ${licenseLink}
-${licenseSection}
 
 ## Contribution
 ${answers.contribution}
