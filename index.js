@@ -17,27 +17,27 @@ const questions = [
 inquirer.prompt([
     {
         type: 'input',
-        name: 'projectTitle',
+        name: 'title',
         message: questions[0]
     },
     {
         type: 'input',
-        name: 'projectDescription',
+        name: 'description',
         message: questions[1]
     },
     {
         type: 'input',
-        name: 'installationInstructions',
+        name: 'installation',
         message: questions[2]
     },
     {
         type: 'input',
-        name: 'userInstructions',
+        name: 'usage',
         message: questions[3]
     },
     {
         type: 'input',
-        name: 'contributionGuidelines',
+        name: 'contribtution',
         message: questions[4]
     },
     {
@@ -49,11 +49,11 @@ inquirer.prompt([
         type: 'list',
         name: 'license',
         message: questions[6],
-        choices: ['Apache License', 'GNU General Public License', 'MIT License',]
+        choices: ['None', 'Apache License', 'GNU General Public License', 'MIT License',]
     },
     {
         type: 'input',
-        name: 'githubUsername',
+        name: 'username',
         message: questions[7]
     },
     {
@@ -63,8 +63,37 @@ inquirer.prompt([
     },
 ]).then((answers) => {
     console.log(answers);
-});
 
+    console.log(`# ${answers.title}
+    
+    ## Description
+    ${answers.description}
+    
+    ## Table of Contents
+    [Installation](#installation)
+    [Usage](#usage)
+    [License](#license)
+    [Contributing](#Contributing)
+    [Tests](#Tests)
+    [Questions](#Questions)
+    
+    ## Installation
+    ${answers.installation} 
+    
+    ## Usage
+    ${answers.usage}
+    
+    ## License
+    ${answers.contribution}
+    
+    ## Tests
+    ${answers.tests}
+    
+    ## Questions
+    GitHub Profile: [${answers.username}](https://github.com/${answers.username})
+    Email: ${answers.email}
+    `)
+});
 
 
 
