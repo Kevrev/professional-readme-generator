@@ -16,9 +16,9 @@ function init() {
         "Briefly describe this project.",
         "What are the installation instructions?",
         "How does a user use this application?",
+        "What kind of license does this project use?",
         "What are the contribution guidelines for this project?",
         "List any tests for this project.",
-        "What kind of license does this project use?",
         "What is your GitHub user name?",
         "What is your email?",
     ];
@@ -45,20 +45,20 @@ function init() {
             message: questions[3]
         },
         {
+            type: 'list',
+            name: 'license',
+            message: questions[4],
+            choices: ['None', 'Apache License', 'GNU General Public License', 'MIT License',]
+        },
+        {
             type: 'input',
-            name: 'contribtution',
-            message: questions[4]
+            name: 'contribution',
+            message: questions[5]
         },
         {
             type: 'input',
             name: 'tests',
-            message: questions[5]
-        },
-        {
-            type: 'list',
-            name: 'license',
-            message: questions[6],
-            choices: ['None', 'Apache License', 'GNU General Public License', 'MIT License',]
+            message: questions[6]
         },
         {
             type: 'input',
@@ -83,30 +83,33 @@ function createMD(answers) {
 # ${answers.title}
 
 ## Description
-${answers.description}
+${answers.description} 
 
 ## Table of Contents
-[Installation](#installation)
-[Usage](#usage)
-[License](#license)
-[Contributing](#Contributing)
-[Tests](#Tests)
-[Questions](#Questions)
+[Installation](#installation) <br \>
+[Usage](#usage) <br \>
+[License](#license) <br \>
+[Contributing](#Contributing) <br \>
+[Tests](#Tests) <br \> 
+[Questions](#Questions) <br \>
 
 ## Installation
-${answers.installation} 
+${answers.installation}
 
 ## Usage
 ${answers.usage}
 
 ## License
+${answers.license}
+
+## Contribution
 ${answers.contribution}
 
 ## Tests
 ${answers.tests}
 
 ## Questions
-GitHub Profile: [${answers.username}](https://github.com/${answers.username})
+GitHub Profile: [${answers.username}](https://github.com/${answers.username}) <br \>
 Email: ${answers.email}
 `)
 
