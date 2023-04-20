@@ -47,7 +47,7 @@ function init() {
             type: 'list',
             name: 'license',
             message: questions[4],
-            choices: ['', 'Apache License', 'GNU General Public License v3.0', 'MIT License',]
+            choices: [{ name: 'None', value: '' }, 'Apache License', 'GNU General Public License v3.0', 'MIT License',]
         },
         {
             type: 'input',
