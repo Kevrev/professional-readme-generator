@@ -1,4 +1,3 @@
-// TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require('fs')
 const { createMD } = require('./utils/generateMarkdown')
@@ -11,7 +10,6 @@ function writeToFile(fileName, data) {
 }
 
 function init() {
-    // TODO: Create an array of questions for user input
     const questions = [
         "What is the title of this project?",
         "Briefly describe this project.",
@@ -49,7 +47,7 @@ function init() {
             type: 'list',
             name: 'license',
             message: questions[4],
-            choices: ['None', 'Apache License', 'GNU General Public License', 'MIT License',]
+            choices: ['', 'Apache License', 'GNU General Public License', 'MIT License',]
         },
         {
             type: 'input',
@@ -72,11 +70,11 @@ function init() {
             message: questions[8]
         },
     ]).then((answers) => {
+
         writeToFile('README.md', createMD(answers));
+
     });
 }
-    
-
 
 // Function call to initialize app
 init();
