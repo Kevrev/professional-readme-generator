@@ -14,6 +14,20 @@ const questions = [
     "What is your email?",
 ];
 
+inquirer.prompt([
+    {
+      type: 'input',
+      name: 'projectTitle',
+      message: questions[0]
+    },
+
+]).then((answers) => {
+    console.log(answers);
+});
+
+
+
+
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
 
