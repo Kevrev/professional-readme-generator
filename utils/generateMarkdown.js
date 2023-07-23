@@ -1,3 +1,4 @@
+// providing a couple common licenses for users
 function renderLicenseBadge(license) {
   let licenseBadge = '';
 
@@ -33,7 +34,7 @@ function renderLicenseSection(license) {
   return licenseSection;
 };
 
-
+// format for generatedREADME and mapping respective content 
 function createMD(answers) {
   const licenseBadge = renderLicenseBadge(answers.license);
   const licenseLink = renderLicenseLink(answers.license);

@@ -2,6 +2,7 @@ const inquirer = require("inquirer");
 const fs = require('fs')
 const { createMD } = require('./utils/generateMarkdown')
 
+// Letting users know the status of the generated file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, function (err) {
         if (err) throw err;
@@ -71,7 +72,7 @@ function init() {
         },
     ]).then((answers) => {
 
-        writeToFile('README.md', createMD(answers));
+        writeToFile('generatedREADME.md', createMD(answers));
 
     });
 }
