@@ -18,11 +18,7 @@ Users can access the deployed GitHub pages site and browse through the different
 
 Link to the deployed website itself:
 
-https://github.com/Kevrev/professional-readme-generator
-
 A video walkthrough of the application:
-
-[insert video link here]
 
 ## Technology Used
 
