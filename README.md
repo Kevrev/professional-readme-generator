@@ -19,6 +19,7 @@ Users can access the deployed GitHub pages site and browse through the different
 Link to the deployed website itself:
 
 A video walkthrough of the application:
+
 https://github.com/Kevrev/professional-readme-generator/assets/107510684/ae7492e7-26c4-4c1d-a56d-816a33d7adad
 
 
