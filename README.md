@@ -14,7 +14,8 @@ Note: `README.md` is the file that contains the code for this README file and is
 
 ![Screenshot](/assets/images/screenshot.jpg)
 
-Link to the deployed website itself:
+Link to the GitHub repository:
+https://github.com/Kevrev/professional-readme-generator
 
 A video walkthrough of the application:
 
